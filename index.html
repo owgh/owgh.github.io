@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hussein | Websites for local businesses</title>
+  <meta name="description" content="Websites that take bookings, give price estimates, take orders and sell gift cards. I build a working draft of yours first, free. Based in Ottawa, working with businesses anywhere.">
+  <meta property="og:title" content="Your website, built before you pay for it">
+  <meta property="og:description" content="I build a working draft of your site first, free. Like it? It's live in 7 days.">
+  <meta property="og:image" content="https://owgh.github.io/img/maple-stone-landscaping.jpg">
+  <link rel="canonical" href="https://owgh.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f5f1; --card: #ffffff; --ink: #121614; --muted: #5a625d; --line: #d9ddd6;
+      --signal: #1f4dff; --on-signal: #fff; --mark: #ffcf3f; --deep: #0f2a1f;
+      --d: "Bricolage Grotesque", "Arial Narrow", sans-serif; --b: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+      --r: 14px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --paper: #0f1311; --card: #171c19; --ink: #eef1ec; --muted: #a2aba5; --line: #2a312d; --signal: #6f8cff; --on-signal: #0b1020; --deep: #0a1a13; }
+    }
+    :root[data-theme="dark"] { --paper: #0f1311; --card: #171c19; --ink: #eef1ec; --muted: #a2aba5; --line: #2a312d; --signal: #6f8cff; --on-signal: #0b1020; --deep: #0a1a13; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.55 var(--b); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    p { margin: 0 0 1em; }
+    h1, h2, h3 { margin: 0; font-family: var(--d); letter-spacing: -0.02em; text-wrap: balance; }
+    .wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+    @media (min-width: 720px) { .wrap { width: min(1160px, 100% - 64px); } }
+    :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 22px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font: 700 1rem var(--b); text-decoration: none; cursor: pointer; }
+    .btn-go { background: var(--signal); border-color: var(--signal); color: var(--on-signal); }
+    .btn:active { transform: translateY(1px); }
+
+    header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    .top { display: flex; align-items: center; gap: 20px; min-height: 64px; }
+    .logo { font: 800 1.25rem var(--d); text-decoration: none; margin-right: auto; letter-spacing: -0.02em; }
+    .logo span { color: var(--muted); font-weight: 500; }
+    nav { display: none; gap: 24px; }
+    nav a { text-decoration: none; font-weight: 600; color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+    @media (min-width: 860px) { nav { display: flex; } }
+    .top .btn { min-height: 42px; padding: 8px 18px; }
+
+    .hero { padding: clamp(40px, 7vw, 96px) 0 clamp(48px, 7vw, 96px); }
+    .hero-in { display: grid; gap: 40px; align-items: center; }
+    @media (min-width: 1000px) { .hero-in { grid-template-columns: 1fr 1.08fr; } }
+    h1 { font-size: clamp(2.8rem, 1.4rem + 5.6vw, 5.6rem); line-height: .95; font-weight: 800; }
+    .lede { font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem); color: var(--muted); max-width: 32em; margin: 24px 0 30px; }
+    .lede b { color: var(--ink); font-weight: 600; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .viewer { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 40px 80px -40px rgba(15, 30, 20, .45); overflow: hidden; }
+    .chrome { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); align-items: center; }
+    .chrome i { width: 10px; height: 10px; border-radius: 99px; background: var(--line); }
+    .chrome span { margin-left: 8px; font-size: .82rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .screen { position: relative; aspect-ratio: 16 / 10; background: var(--paper); }
+    .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: opacity .45s ease; }
+    .viewer-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+    .viewer-foot p { margin: 0; font-weight: 600; }
+    .viewer-foot small { display: block; color: var(--muted); font-weight: 500; }
+    .pick { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .pick button { border: 1.5px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 8px 14px; min-height: 42px; font: 600 .92rem var(--b); cursor: pointer; }
+    .pick button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    section { padding: clamp(64px, 8vw, 112px) 0; }
+    .head { max-width: 720px; margin-bottom: clamp(28px, 4vw, 48px); }
+    h2 { font-size: clamp(2.1rem, 1.3rem + 2.8vw, 3.4rem); line-height: 1; font-weight: 800; }
+    .head p { color: var(--muted); font-size: 1.1rem; margin-top: 14px; }
+
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+    .ex { display: grid; gap: 12px; text-decoration: none; }
+    .ex img { width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--line); aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform .25s ease; }
+    .ex:hover img { transform: translateY(-4px); }
+    .ex b { font: 700 1.15rem var(--d); }
+    .ex span { color: var(--muted); font-size: .95rem; display: block; }
+    .ex em { font-style: normal; font-weight: 700; color: var(--signal); font-size: .95rem; }
+
+    .how { background: var(--deep); color: #eef3ee; }
+    .how .head p { color: #b9c7bd; }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); counter-reset: s; }
+    .steps li { counter-increment: s; border-top: 2px solid #3a5446; padding-top: 18px; }
+    .steps li::before { content: counter(s); display: block; font: 800 3rem/1 var(--d); color: var(--mark); margin-bottom: 10px; }
+    .steps b { display: block; font-size: 1.15rem; margin-bottom: 6px; }
+    .steps p { color: #b9c7bd; margin: 0; }
+
+    .prices { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+    .price { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .price b { font: 700 clamp(1.3rem, 1.1rem + .8vw, 1.8rem) var(--d); }
+    .price strong { font: 800 clamp(1.5rem, 1.2rem + 1vw, 2.2rem) var(--d); white-space: nowrap; }
+    .price p { grid-column: 1 / -1; margin: 0; color: var(--muted); max-width: 46em; }
+    .note { color: var(--muted); font-size: .95rem; margin-top: 18px; }
+
+    .partner { display: grid; gap: 24px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: clamp(24px, 4vw, 48px); }
+    @media (min-width: 900px) { .partner { grid-template-columns: 1.2fr 1fr; } }
+    .partner big { display: block; font: 800 clamp(3rem, 2rem + 4vw, 5.5rem)/1 var(--d); color: var(--signal); }
+
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; list-style: none; padding: 20px 0; font-weight: 700; font-size: 1.1rem; display: flex; justify-content: space-between; gap: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 1.4rem; line-height: 1; transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq p { color: var(--muted); max-width: 44em; padding-bottom: 18px; margin: 0; }
+
+    .contact-in { display: grid; gap: 36px; }
+    @media (min-width: 960px) { .contact-in { grid-template-columns: .9fr 1.1fr; } }
+    form { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: clamp(20px, 3vw, 32px); display: grid; gap: 14px; }
+    .two { display: grid; gap: 14px; }
+    @media (min-width: 560px) { .two { grid-template-columns: 1fr 1fr; } }
+    label { display: grid; gap: 6px; font-weight: 600; font-size: .92rem; }
+    input, select, textarea { font: inherit; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 48px; width: 100%; }
+    textarea { min-height: 110px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--signal); }
+    .msg { font-weight: 600; margin: 0; }
+    .msg.bad { color: #c2311f; }
+    .direct { display: grid; gap: 8px; margin-top: 18px; }
+    .direct a { font-weight: 700; }
+    footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: .92rem; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#">Hussein <span>web</span></a>
+    <nav aria-label="Main"><a href="#examples">Examples</a><a href="#how">How it works</a><a href="#prices">Prices</a><a href="#partners">Partners</a></nav>
+    <a class="btn btn-go" href="#contact">Get my free draft</a>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <h1>Your website, built before you pay for it.</h1>
+        <p class="lede">I build a working draft of your site first, with <b>online booking, instant price estimates, pickup orders or gift cards</b>, whatever brings you customers. Like it? It's live in 7 days.</p>
+        <div class="actions"><a class="btn btn-go" href="#contact">Get my free draft</a><a class="btn" href="#examples">Try an example</a></div>
+      </div>
+      <div>
+        <div class="viewer">
+          <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span id="vUrl">maple-stone-landscaping</span></div>
+          <div class="screen"><img id="vImg" src="img/maple-stone-landscaping.jpg" alt="Example site for a landscaping company" width="1200" height="750"></div>
+          <div class="viewer-foot"><p id="vName">Maple Stone Landscaping<small>Instant price estimates that turn into booked visits</small></p><a class="btn btn-go" id="vLink" href="#" target="_blank" rel="noopener">Try it live</a></div>
+        </div>
+        <div class="pick" id="pick" role="group" aria-label="Pick a kind of business"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="examples">
+    <div class="wrap">
+      <div class="head"><h2>Try them. They work.</h2><p>Each one is a made-up business, built the same way I'd build yours. Tap around: book a time, price a job, order dinner, build a bouquet.</p></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="head"><h2>How it works</h2><p>No calls you don't want, no long forms, no paying up front for something you haven't seen.</p></div>
+      <ol class="steps">
+        <li><b>You tell me about your business</b><p>Two minutes with the form below. A name and what you do is enough to start.</p></li>
+        <li><b>I build your free draft</b><p>Within 48 hours you get a link to a working site with your name on it.</p></li>
+        <li><b>You like it, you pay half</b><p>A 50% deposit books your spot. Send your photos, prices and hours.</p></li>
+        <li><b>Live in 7 days</b><p>Your site goes live on your own web address. You pay the rest when you're happy.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="head"><h2>Prices</h2><p>One-time prices. No contracts, and the site is yours.</p></div>
+      <div class="prices">
+        <div class="price"><b>Website</b><strong>$650</strong><p>Your site with your photos, prices and hours, the booking, estimate or ordering tool that fits your business, online gift cards, Google Maps and tap-to-call, on your own web address.</p></div>
+        <div class="price"><b>Online ordering</b><strong>$399</strong><p>Pickup orders straight from your website, without the delivery-app fees. For restaurants, cafés and bakeries.</p></div>
+        <div class="price"><b>Gift cards</b><strong>$199</strong><p>Gift cards people can buy online and send by email, set up on your payment account. Ready in 48 hours.</p></div>
+        <div class="price"><b>Care plan</b><strong>$49/mo</strong><p>Hosting, small changes whenever you need them, and a monthly check that everything works. Cancel anytime.</p></div>
+      </div>
+      <p class="note">Prices in Canadian dollars. Outside Canada? I'll quote in your currency.</p>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="wrap">
+      <div class="partner">
+        <div><h2>Send me a client, get paid.</h2><p style="color:var(--muted);font-size:1.1rem;margin-top:14px">Accountants, bookkeepers, print shops, realtors: you meet new business owners every week. When someone you send me buys a website, I send you $100.</p><a class="btn btn-go" href="#contact" data-need="Referral partner">Become a partner</a></div>
+        <div><big>$100</big><p style="color:var(--muted);margin:8px 0 0">for every client who buys, paid by e-Transfer the week they pay.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <div class="head"><h2>Questions</h2></div>
+      <details><summary>Is the draft really free?</summary><p>Yes. If you don't like it, you owe nothing and I take it down.</p></details>
+      <details><summary>Do I need a web address already?</summary><p>No. I'll help you pick one and set it up. It costs about $15–25 a year and it's in your name.</p></details>
+      <details><summary>Where do bookings and orders go?</summary><p>Straight to your email, or into the booking or payment app you already use, like Square.</p></details>
+      <details><summary>You're in Ottawa. Do you work with businesses elsewhere?</summary><p>Yes. Everything happens online, so you can be anywhere.</p></details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-in">
+      <div class="head"><h2>Get your free draft</h2><p>Tell me your business name and what you do. I'll send you a link to your draft within 48 hours.</p>
+        <div class="direct"><span>Prefer to talk?</span><a href="tel:+13435975450">Call or text (343) 597-5450</a><a href="mailto:hussein.ottawaweb@gmail.com">hussein.ottawaweb@gmail.com</a></div>
+      </div>
+      <form id="form" novalidate>
+        <div class="two">
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>Business name<input name="business" autocomplete="organization" required></label>
+        </div>
+        <div class="two">
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Phone (optional)<input name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <label>What do you need?
+          <select name="need" id="need">
+            <option>A new website</option><option>A better website</option><option>Online ordering</option><option>Gift cards</option><option>Referral partner</option><option>Something else</option>
+          </select>
+        </label>
+        <label>Anything else? (your current site, your city, what you do)<textarea name="message"></textarea></label>
+        <p class="msg" id="formMsg" role="status" aria-live="polite"></p>
+        <button class="btn btn-go" type="submit" id="send">Send</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Hussein, web developer in Ottawa. Websites for local businesses, anywhere.</div></footer>
+
+<script>
+(function () {
+  var EX = [
+    ['Landscaper', 'maple-stone-landscaping', 'Maple Stone Landscaping', 'Instant price estimates that turn into booked visits'],
+    ['Massage', 'riverside-massage-therapy', 'Riverside Massage Therapy', 'A body map that turns "it hurts here" into a booked visit'],
+    ['Restaurant', 'little-olive-kitchen', 'Little Olive Kitchen', 'Online ordering for pickup, with live order status'],
+    ['Nail salon', 'gloss-nail-studio', 'Gloss Nail Studio', 'Online booking with real open times'],
+    ['Barbershop', 'north-shore-barbers', 'North Shore Barbers', 'Pick a barber, pick a time, done'],
+    ['Trainer', 'iron-path-coaching', 'Iron Path Coaching', 'A plan finder that turns visitors into first sessions'],
+    ['Law firm', 'harbour-legal', 'Harbour Legal', 'A three-question form that books free consultations'],
+    ['Florist', 'petal-and-fern-flowers', 'Petal and Fern Flowers', 'A bouquet builder that takes delivery orders'],
+    ['Mortgage', 'bright-path-mortgages', 'Bright Path Mortgages', 'A payment calculator that books calls']
+  ];
+  var BASE = 'https://owgh.github.io/demo/demos/examples/';
+  var pick = document.getElementById('pick'), grid = document.getElementById('grid');
+  var img = document.getElementById('vImg'), nameEl = document.getElementById('vName'), link = document.getElementById('vLink'), url = document.getElementById('vUrl');
+  function show(i) {
+    var e = EX[i];
+    img.style.opacity = 0;
+    setTimeout(function () { img.src = 'img/' + e[1] + '.jpg'; img.alt = 'Example site: ' + e[2]; img.style.opacity = 1; }, 180);
+    nameEl.innerHTML = ''; nameEl.appendChild(document.createTextNode(e[2]));
+    var s = document.createElement('small'); s.textContent = e[3]; nameEl.appendChild(s);
+    link.href = BASE + e[1] + '.html'; url.textContent = e[1];
+    Array.prototype.forEach.call(pick.children, function (b, k) { b.setAttribute('aria-pressed', String(k === i)); });
+  }
+  EX.forEach(function (e, i) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = e[0]; b.setAttribute('aria-pressed', String(i === 0));
+    b.addEventListener('click', function () { show(i); }); pick.appendChild(b);
+    var a = document.createElement('a'); a.className = 'ex'; a.href = BASE + e[1] + '.html'; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = '<img loading="lazy" width="1200" height="750" alt=""><div><b></b><span></span><em>Try it live</em></div>';
+    a.querySelector('img').src = 'img/' + e[1] + '.jpg'; a.querySelector('img').alt = 'Example site: ' + e[2];
+    a.querySelector('b').textContent = e[2]; a.querySelector('span').textContent = e[3];
+    grid.appendChild(a);
+  });
+  link.href = BASE + EX[0][1] + '.html';
+  Array.prototype.forEach.call(document.querySelectorAll('[data-need]'), function (a) {
+    a.addEventListener('click', function () { document.getElementById('need').value = a.getAttribute('data-need'); });
+  });
+  var form = document.getElementById('form'), msg = document.getElementById('formMsg'), send = document.getElementById('send');
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
+    msg.className = 'msg';
+    if (!d.name || !d.business) { msg.className = 'msg bad'; msg.textContent = 'Add your name and your business name.'; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { msg.className = 'msg bad'; msg.textContent = 'Add an email address so I can send you the draft.'; return; }
+    send.disabled = true; send.textContent = 'Sending…';
+    d._subject = 'Free draft request: ' + d.business; d._template = 'table';
+    fetch('https://formsubmit.co/ajax/hussein.ottawaweb@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function () { form.reset(); msg.textContent = 'Got it. Your draft link is on its way within 48 hours.'; })
+      .catch(function () { msg.className = 'msg bad'; msg.textContent = 'That didn’t send. Text me at (343) 597-5450 instead.'; })
+      .then(function () { send.disabled = false; send.textContent = 'Send'; });
+  });
+})();
+</script>
+</body>
+</html>
