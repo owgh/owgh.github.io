@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start your site | Hussein</title>
+  <meta name="description" content="Tell me about your business and I'll build your website.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f5f1; --card: #ffffff; --ink: #121614; --muted: #5a625d; --line: #d9ddd6;
+      --signal: #1f4dff; --on-signal: #fff; --good: #1d7a46; --bad: #b3261e;
+      --d: "Bricolage Grotesque", "Arial Narrow", sans-serif; --b: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --paper: #0f1311; --card: #171c19; --ink: #eef1ec; --muted: #a2aba5; --line: #2a312d; --signal: #6f8cff; --on-signal: #0b1020; --good: #58c48a; --bad: #ff8a80; }
+    }
+    :root[data-theme="dark"] { --paper: #0f1311; --card: #171c19; --ink: #eef1ec; --muted: #a2aba5; --line: #2a312d; --signal: #6f8cff; --on-signal: #0b1020; --good: #58c48a; --bad: #ff8a80; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.55 var(--b); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .wrap { width: min(760px, 100% - 32px); margin-inline: auto; }
+    header { border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; align-items: center; min-height: 60px; }
+    .logo { font: 800 1.2rem var(--d); text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--muted); font-weight: 600; }
+    h1 { font: 800 clamp(2.2rem, 1.5rem + 3.4vw, 3.4rem)/1 var(--d); letter-spacing: -0.02em; margin: 40px 0 14px; text-wrap: balance; }
+    .lede { color: var(--muted); font-size: 1.1rem; margin: 0 0 20px; max-width: 34em; }
+    .steps { display: grid; gap: 10px; margin: 0 0 28px; padding: 0; list-style: none; counter-reset: s; }
+    .steps li { counter-increment: s; display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+    .steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 99px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 700 .85rem var(--b); }
+    .steps a { font-weight: 700; color: var(--signal); }
+    form { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: clamp(18px, 4vw, 32px); display: grid; gap: 18px; margin-bottom: 48px; }
+    fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 14px; }
+    legend { font: 800 1.3rem var(--d); letter-spacing: -0.01em; margin-bottom: 4px; }
+    .two { display: grid; gap: 14px; }
+    @media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+    label { display: grid; gap: 6px; font-weight: 600; font-size: .95rem; }
+    label small { font-weight: 500; color: var(--muted); }
+    input, select, textarea { font: inherit; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 48px; width: 100%; }
+    textarea { min-height: 104px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--signal); }
+    :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 24px; border-radius: 999px; border: 0; background: var(--signal); color: var(--on-signal); font: 700 1.05rem var(--b); cursor: pointer; }
+    .btn[disabled] { opacity: .6; cursor: progress; }
+    .msg { margin: 0; font-weight: 600; min-height: 1.5em; }
+    .msg.bad { color: var(--bad); } .msg.good { color: var(--good); }
+    .done { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 28px; margin-bottom: 48px; }
+    .done h2 { font: 800 1.8rem var(--d); margin: 0 0 8px; }
+    footer { color: var(--muted); font-size: .9rem; padding: 0 0 40px; }
+  </style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="https://owgh.github.io/">Hussein<span> · websites</span></a></div></header>
+<main class="wrap">
+  <h1>Let's build your site.</h1>
+  <p class="lede">Five minutes here saves us a week of emails. Write it the way you'd say it to a customer; I'll do the polishing.</p>
+  <ol class="steps">
+    <li><span>Pay the $325 deposit to hold your spot: <a href="https://square.link/u/FyF7a0uB" target="_blank" rel="noopener">pay securely with Square</a>. The other half is due only when you're happy with the site.</span></li>
+    <li><span>Fill this in and press Send.</span></li>
+    <li><span>Reply to my email with your logo and 5 to 10 photos (or paste a Google Drive or Dropbox link below). Your preview arrives within 3 days.</span></li>
+  </ol>
+
+  <form id="form" novalidate>
+    <fieldset>
+      <legend>You and your business</legend>
+      <div class="two">
+        <label>Business name<input name="business" id="business" autocomplete="organization" required></label>
+        <label>Your name<input name="name" autocomplete="name" required></label>
+      </div>
+      <div class="two">
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Phone for the website<input name="phone" type="tel" autocomplete="tel"></label>
+      </div>
+      <label>Address to show <small>Leave it empty if you go to your customers; then tell me the area you serve.</small><input name="address" autocomplete="street-address"></label>
+      <label>Area you serve <small>For example: all of Calgary and Airdrie</small><input name="area"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>What goes on the site</legend>
+      <label>Your services and prices <small>One per line, like: Full groom, 2 hours, $85</small><textarea name="services"></textarea></label>
+      <label>Opening hours <small>For example: Mon to Fri 9 to 6, Sat 10 to 4, Sun closed</small><textarea name="hours" style="min-height:80px"></textarea></label>
+      <label>About you <small>Two or three sentences: who you are, how long you've done this, what makes you different</small><textarea name="about"></textarea></label>
+      <label>What should visitors do first?
+        <select name="mainAction">
+          <option>Call me</option><option>Book a time</option><option>Ask for a quote</option><option>Order online</option><option>Buy a gift card</option><option>Send a message</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Links and photos</legend>
+      <label>Web address you want <small>Already own one? Write it. If not, write the name you'd like and I'll check it's free.</small><input name="domain" placeholder="yourbusiness.ca"></label>
+      <label>Booking, gift card or ordering pages you already use <small>Optional: Square, Fresha, Jane, Uber Eats...</small><textarea name="links" style="min-height:80px"></textarea></label>
+      <label>Instagram, Facebook or Google page <small>Optional</small><input name="social"></label>
+      <label>Link to your photos and logo <small>Optional: or reply to my email with them attached</small><input name="photos" placeholder="Google Drive, Dropbox or iCloud link"></label>
+      <label>Colours or a site you like the look of <small>Optional</small><input name="style"></label>
+      <label>Deposit
+        <select name="deposit"><option>I've paid the deposit</option><option>I'll pay it today</option></select>
+      </label>
+      <label>Anything else<textarea name="notes" style="min-height:80px"></textarea></label>
+    </fieldset>
+    <p class="msg" id="msg" role="status" aria-live="polite"></p>
+    <div><button class="btn" type="submit" id="send">Send my details</button></div>
+  </form>
+
+  <div class="done" id="done" tabindex="-1">
+    <h2>Got it, thank you.</h2>
+    <p>I'll start on your site now. Reply to my email with your logo and photos if you haven't sent them yet. Your preview link arrives within 3 days.</p>
+    <p>Questions? Just reply to my email, or text (343) 597-5450.</p>
+  </div>
+</main>
+<footer class="wrap">Hussein, web developer in Ottawa. Websites for small businesses anywhere in Canada.</footer>
+<script>
+(function () {
+  var form = document.getElementById('form'), msg = document.getElementById('msg'), send = document.getElementById('send');
+  try {
+    var b = new URLSearchParams(location.search).get('b');
+    if (b) document.getElementById('business').value = b.slice(0, 120);
+  } catch (e) { }
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
+    msg.className = 'msg';
+    if (!d.business || !d.name) { msg.className = 'msg bad'; msg.textContent = 'Add your business name and your name.'; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { msg.className = 'msg bad'; msg.textContent = 'Add an email address so I can send your preview.'; return; }
+    if (!d.services && !d.about) { msg.className = 'msg bad'; msg.textContent = 'Tell me your services or a bit about you, so the site has something to say.'; return; }
+    send.disabled = true; send.textContent = 'Sending…';
+    d._subject = 'Client details: ' + d.business; d._template = 'table';
+    fetch('https://formsubmit.co/ajax/hussein.ottawaweb@gmail.com', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function () { form.style.display = 'none'; var done = document.getElementById('done'); done.style.display = 'block'; done.focus(); window.scrollTo(0, 0); })
+      .catch(function () { msg.className = 'msg bad'; msg.textContent = 'That didn’t send. Reply to my email with the same details instead, or text (343) 597-5450.'; })
+      .then(function () { send.disabled = false; send.textContent = 'Send my details'; });
+  });
+})();
+</script>
+</body>
+</html>
